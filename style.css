@@ -1,0 +1,126 @@
+*:focus {
+    outline: none;
+
+}
+
+html{
+    height:0;
+}
+
+
+body {
+    height: 100vh;
+    background: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contentBox {
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+p {
+    font-size: 1.5rem;
+    font-weight: 600;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+button {
+    align-self: center;
+    padding: 0.5rem 1rem;
+    border: 0;
+}
+
+.buttonBox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: white
+}
+
+.buttonBox input {
+    padding: 0.3rem ;
+    border: 3px solid coral;
+}
+
+.buttonBox button {
+    margin-top: 1rem;
+    background: coral;
+    color: white;
+    cursor: pointer;
+}
+
+
+#imgBox {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items:center;
+}
+
+#imgBox1 {
+    width: 70%;
+    display: none;
+}
+
+#imgBox img {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: -1;
+}
+#imgBox1 img {
+    width: 100%;
+}
+
+#inputBox2 input {
+    padding: 0.3rem ;
+    border: 3px solid coral;
+}
+
+#inputBox input {
+    padding: 0.3rem;
+    border: 3px solid coral;
+}
+
+#inputBox1 input {
+    padding: 0.3rem ;
+    border: 3px solid coral;
+}
+
+#submitBox{
+    margin-top: 1rem;
+    background: coral;
+    color: white;
+    cursor: pointer;
+}
+
+#submitBox1 button {
+    margin-top: 1rem;
+    background: coral;
+    color: white;
+    cursor: pointer;
+}
+
+#submitBox2 button {
+    margin-top: 1rem;
+    background: coral;
+    color: white;
+    cursor: pointer;
+}
+
+#yesOrNo {
+    display: flex;
+    flex-direction: column;
+}
+
+#yesOrNo button {
+    margin-bottom: 1rem;
+}
