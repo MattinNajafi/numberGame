@@ -28,7 +28,7 @@ function gameStarter() {
 
 function welcome() {
     userName = inputElement.value
-    sayingHello.innerHTML = "Välkommen till nummerspelet, " + userName + "!"
+    sayingHello.innerHTML = "Välkommen till mördarens nummerspelet, " + userName + "!"
 
     document.getElementById("inputBox").style.display = "none"
     document.getElementById("submitBox").style.display = "none"
@@ -51,21 +51,19 @@ function askingForAge() {
 }
 function oldEnough() {
     userAge = inputAge.value
+    age = Number(userAge)
 
-    while (true) {
-        age = Number(userAge)
-        if (Number.isNaN(age)) {
-            sayingHello.innerHTML = "Skriv ett nummer, inga bokstäver eller tecken!!!"
-            writeNumber()
-        }
-        else {
-            sayingHello.innerHTML = "Tur att du är " + userAge + " år gammal, du  är precis gammal nog!"
-            document.getElementById("submitBox1").style.display = "none"
-            document.getElementById("inputBox1").style.display = "none"
-            setTimeout(gameRules, 4000)
-            break
-        }
+    if (Number.isNaN(age)) {
+        sayingHello.innerHTML = "Skriv ett nummer, inga bokstäver eller tecken!!!"
+        return
     }
+    else {
+        sayingHello.innerHTML = "Tur att du är " + userAge + " år gammal, du  är precis gammal nog!"
+        document.getElementById("submitBox1").style.display = "none"
+        document.getElementById("inputBox1").style.display = "none"
+        setTimeout(gameRules, 4000)
+    }
+
 }
 
 function writeNumber() {
@@ -94,21 +92,20 @@ function gameRules() {
 
 function checkValue() {
     userAnswerYes = firstOption.value
-    while (true)
 
-        if (userAnswerYes == "Ja" || userAnswerYes == "ja" || userAnswerYes == "JA" || userAnswerYes == "jA") {
-            onlyRule()
-            break;
-        }
-        else if (userAnswerYes == "Nej" || userAnswerYes == "nej" || userAnswerYes == "NEJ") {
-            noRule()
-            break;
-        }
-        else {
-            sayingHello.innerHTML = "Skriv ja eller nej, försök igen!"
-            checkValue()
-            break;
-        }
+
+    if (userAnswerYes == "Ja" || userAnswerYes == "ja" || userAnswerYes == "JA" || userAnswerYes == "jA") {
+        onlyRule()
+
+    }
+    else if (userAnswerYes == "Nej" || userAnswerYes == "nej" || userAnswerYes == "NEJ") {
+        noRule()
+
+    }
+    else {
+        sayingHello.innerHTML = "Skriv ja eller nej, försök igen!"
+        return;
+    }
 }
 
 function onlyRule() {
@@ -242,6 +239,10 @@ function checkGuesses() {
     else if (nrOfGuesses == 10 && inputGuess != randomNumber) {
         gameOver()
     }
+
+    else if (isNaN(inputGuess)) {
+        sayingHello.innerHTML = "Skriv siffror, hahaha. En gissning mindre nu.."
+    }
     else if (nrOfGuesses == 9) {
         sayingHello.innerHTML = "Sista gissningen nu, tänk noga på din gissning, annars....."
     }
@@ -273,18 +274,20 @@ function endOfGame() {
 }
 
 function imgOfMushroom() {
+    document.getElementById("paragraph").style.display = "none"
     document.getElementById("imgBox").style.display = "flex"
     var mushroomImg = document.createElement("img")
     mushroomImg.src = "mushroom.jpg"
     var src = document.getElementById('imgBox')
     src.append(mushroomImg)
-    setTimeout(absoluteEndingOfGame,2000)
+    setTimeout(absoluteEndingOfGame, 2000)
 }
 
-function absoluteEndingOfGame(){
+function absoluteEndingOfGame() {
     let gameOver = document.createElement("h1")
     document.getElementById("imgBox").append(gameOver)
     gameOver.innerHTML = "Game Over"
     gameOver.style.color = "white"
+
 
 }

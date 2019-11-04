@@ -95,7 +95,7 @@ button {
     border: 3px solid coral;
 }
 
-#submitBox{
+#submitBox button{
     margin-top: 1rem;
     background: coral;
     color: white;
